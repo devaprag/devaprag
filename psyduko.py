@@ -137,13 +137,13 @@ def get_neighbours(gridIndex):
 @functools.cache
 def get_buddy_remove(gridIndex, getFn):
     """  if value is in buddies and not in others, 
-         can remove value from 'removeFrom'
+         can remove value from 'remove_from'
 
      key
 
      x - buddies
      o - others
-     r - removeFrom
+     r - remove_from
 
      bbb rrr rrr
      ooo ... ...
@@ -170,10 +170,10 @@ def get_buddy_remove(gridIndex, getFn):
     # o - others
     others = frame.difference(buddies)
 
-    # r - removeFrom
-    removeFrom = line.difference(buddies)
+    # r - remove_from
+    remove_from = line.difference(buddies)
 
-    return buddies, others, removeFrom
+    return buddies, others, remove_from
 
 
 # --------------
@@ -205,7 +205,7 @@ def deduce_from_other_values(grid, index, getFn):
 
 def deduce_from_buddies(grid, gridIndex, getFn):
     """ if value is in buddies and not in others,
-        can remove value from 'removeFrom'
+        can remove value from 'remove_from'
     """
     buddies, others, remove_from = get_buddy_remove(gridIndex, getFn)
 
